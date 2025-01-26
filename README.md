@@ -42,3 +42,40 @@ Biteology is a web application designed to help users turn leftover ingredients 
 | **LLM Integration**| LangChain           |  
 
 ---
+# Setting Up the Project
+
+Follow the steps below to set up and run the project locally:
+
+## 1. Navigate to the Project Directory
+```bash
+cd backend
+```
+
+## 2. Create a Virtual Environment
+```bash
+python -m venv venv
+```
+
+## 3. Activate the Virtual Environment
+
+**macOS/Linux:**
+```bash
+source venv/bin/activate
+```
+
+**Windows:**
+```bash
+venv\Scripts\activate
+```
+
+## 4. Install Dependencies
+Install all the required Python packages using:
+```bash
+pip install -r requirements.txt
+```
+
+## 5. Run the Application
+Start the application using:
+```bash
+python run.py
+```
