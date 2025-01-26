@@ -1,0 +1,163 @@
+/* MainPage.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Racing+Sans+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Dela Gothic One", serif;
+    background-color: #FCFAEE;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+
+
+header img {
+    width: 20rem;
+    padding: 2%;
+}
+
+/* Search Bar */
+
+input {
+    width: 50%;
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.5rem;
+    font-family: "Dela Gothic One", serif;
+    color: #DA8359;
+}
+
+input::placeholder {
+    color: #ECDFCC;
+}
+
+/* Dropdown Menu */
+
+.dropdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    width: 100%;
+    margin: 3%;
+}
+
+
+select {
+    width: 24%;
+    padding: 5px 20px;
+    margin: 0;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.2rem;
+    font-family: "Dela Gothic One", serif;
+    color: #ECDFCC;
+}
+
+input:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(218, 131, 89, 0.5);
+}
+
+
+/* Generate Button */
+
+.generate-button {
+    background-color: #DA8359;
+    border: none;
+    color: #fff;
+    font-family: "Dela Gothic One", serif;
+    border-radius: 50px;
+    padding: 5px 20px 10px 20px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.generate-button:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: #DA8359;
+}
+
+
+/* Footer */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #A5B68D;
+    text-align: center;
+    padding: 10px 0;
+    font-family: "Racing Sans One", serif;
+}
+
+footer .copyright {
+    color: #fff;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+footer .footer-icon {
+    font-size: 2rem;
+}
+
+
+/* RWD: for phone size*/
+
+@media screen and (max-width: 768px) {
+    header img {
+        width: 15rem;
+    }
+
+    input {
+        width: 80%;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+    }
+
+    .dropdown-container {
+        flex-direction: flex;
+        gap: 2%;
+        width: 80%;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    .dropdown {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    select {
+        width: 49%;
+        font-size: 0.8rem;
+    }
+
+    .generate-button {
+        width: 50%; 
+        padding-top: 8px;
+        font-size: 0.8rem;
+    }
+
+    footer .footer-icon {
+        font-size: 1.5rem;
+    }
+
+    footer .copyright {
+        font-size: 0.9rem;
+    }
+}
