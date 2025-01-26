@@ -1,9 +1,14 @@
-from flask import jsonify, render_template, current_app as app
+from flask import Flask, request, jsonify
+from .gpt_recipes import generate_recipe
 
-@app.route('/')
-def index():
-    return render_template('index.html', title="Welcome to Biteology")
+app = Flask(__name__)
 
-@app.route('/api/hello', methods=['GET'])
-def hello_api():
-    return jsonify({"message": "Hello from Flask!"})
+@app.route('/generate_recipe', methods=['POST'])
+def generate_recipe_route():
+    data = request.json
+    ingredients = data.get('ingredients', [])
+    if not ingredients:
+        return jsonify({"error": "No ingredients provided"}), 400
+
+    recipe = generate_recipe(ingredients)
+    return jsonify({"recipe": recipe})
