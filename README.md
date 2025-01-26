@@ -32,6 +32,18 @@ Biteology is a web application designed to help users turn leftover ingredients 
 
 ---
 
+## Design
+
+| Main Page (PC) | Main Page (Phone) |
+|-----------------------------|------------------------------|
+| ![Mainpage_PC](https://github.com/wilsonchang17/Biteology/blob/main/design/MainPage_PC.png) | ![Mainpage_Phone](https://github.com/wilsonchang17/Biteology/blob/main/design/MainPage_Phone.png) |
+
+| Recipe Page (PC) | Recipe Page (Phone) |
+|--------------------------------|--------------------------------|
+| ![Recipepage_PC](https://github.com/wilsonchang17/Biteology/blob/main/design/RecipePage_PC.png) | ![Recipepage_Phone](https://github.com/wilsonchang17/Biteology/blob/main/design/Recipe_Phone.png) |
+
+---
+
 ## Tech Stack  
 
 | **Category**      | **Technology**      |  
