@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from flask_cors import cross_origin
 from .gpt_recipes import generate_recipe
+import re
 
 # 使用 Blueprint 注册路由
 routes = Blueprint('routes', __name__)
@@ -18,11 +19,17 @@ def generate_recipe_route():
 
     # 处理 POST 请求
     data = request.json
-    ingredients = data.get('ingredients', [])
+    original_ingredients = data.get('ingredients', '')
+    #print(original_ingredients)
+    ingredients = re.split(r'[,\s]+', original_ingredients.strip())
+
+# 過濾空項（避免多餘的分隔符導致的空字串）
+    ingredients= [item for item in ingredients if item]
+    #print(ingredients)
     meal = data.get('meal', '')
     type = data.get('type', '')
 
-    if not ingredients or not meal or not type:
+    if not ingredients:
         return jsonify({"error": "Missing required fields"}), 400
 
     try:

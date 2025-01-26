@@ -17,7 +17,7 @@ function App() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    ingredients: ingredients.split(",").map((item) => item.trim()),
+                    ingredients,
                     meal,
                     type,
                 }),
