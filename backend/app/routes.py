@@ -1,10 +1,9 @@
-from flask import jsonify, request, current_app as app
+from flask import jsonify, render_template, current_app as app
+
+@app.route('/')
+def index():
+    return render_template('index.html', title="Welcome to Biteology")
 
 @app.route('/api/hello', methods=['GET'])
-def hello_world():
+def hello_api():
     return jsonify({"message": "Hello from Flask!"})
-
-@app.route('/api/data', methods=['POST'])
-def process_data():
-    data = request.json
-    return jsonify({"received_data": data})
