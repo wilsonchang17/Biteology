@@ -34,6 +34,7 @@ def generate_recipe_route():
 
     try:
         recipe = generate_recipe(ingredients, meal, type)
+        
         return jsonify({"recipe": recipe}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
