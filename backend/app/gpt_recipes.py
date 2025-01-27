@@ -17,10 +17,21 @@ def generate_recipe(ingredients, meal, type):
         # 建立提示詞，明確指示需要的格式
         prompt = (
             f"Using the following ingredients: {', '.join(ingredients)}, "
-            f"create one {type}, {meal}recipe  Respond with the Recipe Name, Ingredients, and Instructions in 3 different grouped sections. "
-            "separated three groups by ####.\n"
-            "Do not include unnecessary descriptions or endings such as 'Enjoy your meal' or similar phrases. "
-            "Stick strictly to the requested format."
+            f"create one {type}, {meal} recipe.\n\n"
+            "Strictly follow this format:\n"
+            "Recipe Name: <Recipe Name>\n"
+            "####\n"
+            "Ingredients:\n"
+            "<ingredient 1>\n"
+            "<ingredient 2>\n"
+            "... (list all ingredients as plain text, each on a new line)\n"
+            "####\n"
+            "Instructions:\n"
+            "<instruction step 1>\n"
+            "<instruction step 2>\n"
+            "... (list all steps as plain text, each on a new line)\n\n"
+            "Do not include extra descriptions or endings like 'Enjoy your meal.' "
+            "Make sure to strictly stick to the format above."
         )
 
         # 呼叫 OpenAI 的 ChatGPT API
@@ -34,8 +45,11 @@ def generate_recipe(ingredients, meal, type):
 
         # 提取回應內容
         recipe = response["choices"][0]["message"]["content"]
-        #print("Generated Recipe:", recipe)  # Debug 用
-        return recipe
+        print("Generated Recipe:", recipe)  # Debug 用
+        final_recipe = parse_recipe(recipe)
+        print("--------------------")
+        print(final_recipe)
+        return final_recipe
 
     except Exception as e:
         print("Error:", str(e))
@@ -67,7 +81,7 @@ def parse_recipe(response):
                 # 按行拆分並去除多餘空格
                 instructions = section.replace("Instructions:", "").strip().split("\n")
                 recipe_parts["Instructions"] = [instruction.strip() for instruction in instructions if instruction.strip()]
-
+        #print(recipe_parts)
         return recipe_parts
 
     except Exception as e:
@@ -75,10 +89,10 @@ def parse_recipe(response):
         return None
 
 # 測試函式
+'''
 if __name__ == "__main__":
     result = generate_recipe(["chicken", "potato", "carrot"], "Tai", "Dinner")
     recipe = parse_recipe(result)
-    for r in recipe:
-        print(r, recipe[r])
-        print("\n")
-    #print("Result:", recipe)
+    
+    print("Result:", recipe)
+'''
