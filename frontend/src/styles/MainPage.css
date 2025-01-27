@@ -41,12 +41,12 @@ input {
 }
 
 input::placeholder {
-    color: #ECDFCC;
+    color: #dfcfb7;
 }
 
 /* Dropdown Menu */
 
-.dropdown-container {
+.dropdown-container-main {
     display: flex;
     justify-content: center;
     gap: 2%;
@@ -63,7 +63,7 @@ select {
     border: none;
     font-size: 1.2rem;
     font-family: "Dela Gothic One", serif;
-    color: #ECDFCC;
+    color: #dfcfb7;
 }
 
 input:focus, select:focus {
@@ -93,7 +93,8 @@ input:focus, select:focus {
 
 /* Footer */
 
-footer {
+/* 固定在螢幕底部的 Footer */
+.footer-fixed {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -103,6 +104,17 @@ footer {
     font-family: "Racing Sans One", serif;
 }
 
+/* 隨內容移動的 Footer */
+.footer-static {
+    position: static;
+    width: 100%;
+    background-color: #A5B68D;
+    text-align: center;
+    padding: 10px 0;
+    font-family: "Racing Sans One", serif;
+}
+
+/* 通用 Footer 內容樣式 */
 footer .copyright {
     color: #fff;
     font-size: 1rem;
@@ -116,7 +128,6 @@ footer .copyright {
 footer .footer-icon {
     font-size: 2rem;
 }
-
 .spinner {
     display: flex;
     justify-content: center;
@@ -155,7 +166,7 @@ footer .footer-icon {
         font-size: 1.2rem;
     }
 
-    .dropdown-container {
+    div .dropdown-container-main {
         flex-direction: flex;
         gap: 2%;
         width: 80%;
@@ -186,3 +197,38 @@ footer .footer-icon {
         font-size: 0.9rem;
     }
 }
+
+@keyframes pulse {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0.25;
+      transform: scale(0.75);
+    }
+  }
+  
+  /* PULSE BUBBLES */
+  
+  .pulse-container {
+    width: 12rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .pulse-bubble {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .pulse-bubble-1 {
+      animation: pulse 0.6s ease 0s infinite alternate;
+  }
+  .pulse-bubble-2 {
+      animation: pulse 0.6s ease 0.3s infinite alternate;
+  }
+  .pulse-bubble-3 {
+      animation: pulse 0.6s ease 0.6s infinite alternate;
+  }
