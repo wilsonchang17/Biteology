@@ -1,0 +1,150 @@
+/* RecipePage.css */
+
+.recipe-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two-column layout */
+    gap: 20px;
+    color: #756E6A;
+    margin-bottom: 5%;
+}
+
+h2 {
+    color: #83926E;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+ul, ol {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+ul li, ol li {
+    line-height: 2;
+}
+
+h1 {
+    grid-column: span 2; /* Title spans both columns */
+    font-size: 2rem;
+    text-align: center;
+    color: #DA8359;
+    padding-bottom: 2%;
+}
+
+.suggest-ingredients {
+    padding-top: 10%;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-radius: 10px;
+
+    max-width: 90%;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    margin-bottom: 3%;
+
+}
+
+.logo {
+    width: 18rem;
+    height: auto;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.input-field {
+    flex: 1; /* 讓搜尋欄填滿可用空間 */
+    min-width: 30%; /* 設置最小寬度，避免過短 */
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.dropdown-container {
+    display: flex;
+    gap: 30px;
+}
+
+.dropdown {
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 1rem;
+    min-width: 50%;
+}
+
+.generate-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #DA8359;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    white-space: nowrap; /* 防止文字換行 */
+}
+
+.generate-button:hover {
+    background-color: #fff;
+    color: #DA8359;
+}
+
+/* Left Column - Ingredients */
+.left-section {
+    padding-right: 20px;
+    border-right: 3px solid #ECDFCC;
+}
+
+.left-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.left-section ul {
+    list-style-type: circle;
+}
+
+/* Right Column - Instructions */
+.right-section {
+    padding-left: 20px;
+}
+.right-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.right-section ol {
+    list-style-type: decimal;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .recipe-page {
+        grid-template-columns: 1fr; /* Stack columns for smaller screens */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    button {
+        width: 100%;
+    }
+}

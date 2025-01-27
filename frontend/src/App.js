@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareGithub } from "@fortawesome/free-brands-svg-icons";
 import { faSquareEnvelope } from "@fortawesome/free-solid-svg-icons";
 import "./styles/MainPage.css";
-import RecipePage from "./RecipePage"; // 引入 RecipePage 页面组件
+import RecipePage from "./RecipePage";
 
 function App() {
     const [ingredients, setIngredients] = useState("");
@@ -14,7 +14,7 @@ function App() {
     const navigate = useNavigate();
 
     const handleGenerateRecipe = async () => {
-        setIsLoading(true); // 开始加载
+        setIsLoading(true);
         try {
             const response = await fetch("http://localhost:5001/generate_recipe", {
                 method: "POST",
@@ -30,7 +30,7 @@ function App() {
     
             if (response.ok) {
                 const data = await response.json();
-                navigate("/recipe", { state: { recipe: data.recipe } });
+                navigate("/recipe", { state: { recipe: data.recipe, enteredIngredients: ingredients } });
             } else {
                 console.error("Failed to generate recipe");
                 alert("Failed to generate recipe. Check backend for errors.");
@@ -39,15 +39,13 @@ function App() {
             console.error("Error:", error);
             alert("An error occurred while generating the recipe.");
         } finally {
-            setIsLoading(false); // 停止加载
+            setIsLoading(false);
         }
     };
 
     return (
         <div className="main-page">
-            <header className="header">
-                <img src="/images/logo.png" alt="Biteology" className="logo" />
-            </header>
+            
             <Routes>
                 <Route
                     path="/"
@@ -55,14 +53,16 @@ function App() {
                         <div className="content">
                             {isLoading ? (
                                 <div className="spinner">
-                                    {/* 这里是加载动画 */}
                                     <div className="loading-circle"></div>
                                 </div>
                             ) : (
                                 <>
+                                    <header className="header">
+                                        <img src="/images/logo.png" alt="Biteology" className="logo" />
+                                    </header>
                                     <input
                                         type="text"
-                                        placeholder="Enter ingredients (comma-separated)"
+                                        placeholder="Enter ingredients"
                                         className="input-field"
                                         value={ingredients}
                                         onChange={(e) => setIngredients(e.target.value)}
@@ -108,6 +108,8 @@ function App() {
             <footer className="footer">
                 <p className="copyright">
                     © Biteology 2025. All rights reserved.
+                    <FontAwesomeIcon icon={faSquareGithub} className="footer-icon" />
+                    <FontAwesomeIcon icon={faSquareEnvelope} className="footer-icon" />
                 </p>
             </footer>
         </div>
